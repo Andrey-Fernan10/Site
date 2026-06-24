@@ -1,0 +1,110 @@
+/* ==========================================================================
+   Configurações Globais e Reset
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0B132B; /* Azul-marinho profundo padrão */
+    color: #E0E1DD;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ==========================================================================
+   Card do Formulário
+   ========================================================================== */
+.senha-container {
+    background-color: #1C2541; /* Azul-marinho intermediário */
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid #2A3454;
+    text-align: center;
+}
+
+.form-header h1 {
+    font-size: 2rem;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Detalhe do pipe "|" em Neon */
+.form-header h1 span {
+    color: #64DFDF;
+    font-weight: bold;
+}
+
+.instrucao {
+    font-size: 0.9rem;
+    color: #A5A5A5;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   Formulários e Inputs
+   ========================================================================== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input {
+    width: 100%;
+    background-color: #0B132B;
+    border: 1px solid #3A506B;
+    color: #E0E1DD;
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Esconde o texto da senha substituindo por bolinhas por segurança */
+input[type="password"] {
+    letter-spacing: 1px;
+}
+
+input:focus {
+    border-color: #64DFDF;
+    box-shadow: 0 0 8px rgba(100, 223, 223, 0.25);
+}
+
+/* ==========================================================================
+   Botão de Confirmação
+   ========================================================================== */
+#confirmada {
+    background-color: #4EA8DE;
+    color: #0B132B;
+    border: none;
+    padding: 14px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+}
+
+#confirmada:hover {
+    background-color: #64DFDF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(100, 223, 223, 0.3);
+}

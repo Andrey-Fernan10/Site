@@ -1,0 +1,266 @@
+/* ==========================================================================
+   Configurações Globais e Reset
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0B132B; /* Azul-marinho profundo */
+    color: #E0E1DD; 
+    display: flex;
+    min-height: 100vh;
+}
+
+hr {
+    display: none;
+}
+
+/* ==========================================================================
+   Barra Lateral (Sidebar)
+   ========================================================================== */
+#barra-lateral {
+    width: 260px;
+    background-color: #1C2541; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid #3A506B;
+}
+
+#barra-lateral h3 {
+    color: #4EA8DE; 
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+
+#barra-lateral nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+#barra-lateral button {
+    background: transparent;
+    border: none;
+    color: #A5A5A5;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+#barra-lateral button:hover {
+    background-color: #3A506B;
+    color: #FFFFFF;
+}
+
+#barra-lateral #btn-novo-chat {
+    background-color: #4EA8DE;
+    color: #0B132B;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#barra-lateral #btn-novo-chat:hover {
+    background-color: #64DFDF;
+    transform: translateY(-2px);
+}
+
+#perfilsigma {
+    background-color: #24305E !important;
+    color: #FFFFFF !important;
+    text-align: center !important;
+    margin-top: auto;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Área Principal (Main Content)
+   ========================================================================== */
+main {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+main h1 {
+    font-size: 2rem;
+    color: #FFFFFF;
+    border-bottom: 2px solid #3A506B;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#btn-main {
+    background: transparent;
+    border: 1px solid #FF577F;
+    color: #FF577F;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+#btn-main:hover {
+    background-color: #FF577F;
+    color: white;
+}
+
+/* ==========================================================================
+   Seções e Componentes de Formulário
+   ========================================================================== */
+section {
+    background-color: #1C2541;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid #2A3454;
+}
+
+label {
+    display: block;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    color: #94D2BD;
+}
+
+input, select {
+    width: 100%;
+    background-color: #0B132B;
+    border: 1px solid #3A506B;
+    color: #E0E1DD;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #64DFDF;
+}
+
+#criar-conteudo, #area-chat {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+button:not(#barra-lateral button):not(#btn-main):not(.chat-actions button) {
+    background-color: #3A506B;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+button:not(#barra-lateral button):not(#btn-main):not(.chat-actions button):hover {
+    background-color: #4EA8DE;
+    color: #0B132B;
+}
+
+/* ==========================================================================
+   Design do Chat Estilo IA (Botões dentro do Input)
+   ========================================================================== */
+.input-chat-container {
+    position: relative;
+    background-color: #0B132B;
+    border: 1px solid #3A506B;
+    border-radius: 16px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-chat-container:focus-within {
+    border-color: #64DFDF;
+    box-shadow: 0 0 10px rgba(100, 223, 223, 0.2);
+}
+
+#falar-combot {
+    width: 100% !important;
+    min-height: 80px !important;
+    background: transparent;
+    border: none;
+    color: #E0E1DD;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+    padding-bottom: 40px; /* Garante que o texto não suma atrás dos botões */
+}
+
+/* Container dos botões fixados no canto inferior */
+.chat-actions {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    justify-content: space-between; /* Mídia na esquerda, Enviar na direita */
+    align-items: center;
+    pointer-events: none; /* Permite clicar no textarea se errar o botão */
+}
+
+.chat-actions button {
+    pointer-events: auto; /* Devolve o clique para os botões */
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+/* Botão de Mídia (Clip) */
+#btn-midia {
+    background: transparent;
+    color: #A5A5A5;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+#btn-midia:hover {
+    background-color: #1C2541;
+    color: #FFFFFF;
+}
+
+/* Botão Enviar (Ícone de seta) */
+#btn-enviar {
+    background-color: #FFFFFF;
+    color: #0B132B;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#btn-enviar:hover {
+    background-color: #64DFDF;
+    transform: scale(1.05);
+}

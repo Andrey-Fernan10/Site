@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearninCo - Registre-se</title>
+    <link rel="stylesheet" href="registro.css">
+</head>
+<body>
+
+    <div class="registro-container">
+        <h1><span>|</span> Registre-se</h1>
+        <p class="instrucao">Crie sua conta para começar a organizar seus estudos.</p>
+        
+        <form onsubmit="return false;">
+            <div class="input-row">
+                <input id="nome" type="text" placeholder="Nome" required>
+                <input id="sobrenome" type="text" placeholder="Sobrenome" required>
+            </div>
+            
+            <div class="input-group">
+                <input id="gmail" type="email" placeholder="Digite seu Email" required>
+            </div>
+            
+            <div class="input-group">
+                <input id="senhaN" type="password" placeholder="Digite sua senha" required>
+                <button id="versenhaR" type="button" >👀</button>
+            </div>
+            
+            <button id="btn-registrar" type="submit">Criar Conta</button>
+        </form>
+
+        <div class="registro-actions">
+            <button id="btn-voltar-login" onclick="window.history.back()">Já tem uma conta? Entre aqui</button>
+        </div>
+    </div>
+
+    <script src="registroso.js"></script>
+</body>
+</html>

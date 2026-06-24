@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearninCo - Nova Senha</title>
+    <link rel="stylesheet" href="novasenha.css">
+</head>
+<body>
+
+    <div class="senha-container">
+        <header class="form-header">
+            <h1><span>|</span> Nova Senha</h1>
+            <p class="instrucao">Crie uma senha forte e lembre-se de repeti-la identicamente abaixo.</p>
+        </header>
+        
+        <form onsubmit="return false;">
+            <div class="input-group">
+                <input id="novasenha" type="password" placeholder="Nova senha" required>
+                <button id="versenha" type="button">👀</button>
+            </div>
+            
+            <div class="input-group">
+                <input id="novasenhaI" type="password" placeholder="Repita sua nova senha" required>
+                <button id="versenhaI" type="button">👀</button>
+            </div>
+            
+            <button id="confirmada" type="submit">Criar nova Senha</button>
+        </form>
+    </div>
+
+    <script src="senhaesquecida.js"></script>
+</body>
+</html>

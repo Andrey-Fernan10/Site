@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearninCo - Recuperar Senha</title>
+    <link rel="stylesheet" href="esqueci.css">
+</head>
+<body>
+
+    <div class="recuperar-container">
+        <h1><span>|</span> Esqueci minha senha</h1>
+        
+        <p class="instrucao">Insira o e-mail cadastrado para receber as instruções de recuperação.</p>
+
+        <form onsubmit="return false;">
+            <div class="input-group">
+                <input id="email-recuperacao" type="email" placeholder="Insira seu Email" required>
+            </div>
+            
+            <button id="forget" type="submit">Formar nova senha</button>
+        </form>
+
+        <div class="recuperar-actions">
+            <button id="btn-voltar" onclick="window.history.back()">← Voltar para o Login</button>
+        </div>
+    </div>
+
+    <script src="senhaesquecida.js"></script>
+</body>
+</html>
