@@ -181,86 +181,223 @@ button:not(#barra-lateral button):not(#btn-main):not(.chat-actions button):hover
     background-color: #4EA8DE;
     color: #0B132B;
 }
-
 /* ==========================================================================
-   Design do Chat Estilo IA (Botões dentro do Input)
+   Configurações de Layout Geral (Ajustando a visualização de tela cheia)
    ========================================================================== */
-.input-chat-container {
-    position: relative;
+body {
+    display: flex;
+    min-height: 100vh;
     background-color: #0B132B;
-    border: 1px solid #3A506B;
-    border-radius: 16px;
-    padding: 12px;
+    color: #E0E1DD;
+}
+
+hr {
+    display: none; /* Remove a linha divisória crua */
+}
+
+main {
+    flex: 1;
+    padding: 30px;
     display: flex;
     flex-direction: column;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    height: 100vh;
+    overflow-y: auto;
 }
 
-.input-chat-container:focus-within {
-    border-color: #64DFDF;
-    box-shadow: 0 0 10px rgba(100, 223, 223, 0.2);
+#barra-lateral {
+    width: 260px;
+    background-color: #1C2541;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #3A506B;
 }
 
-#falar-combot {
-    width: 100% !important;
-    min-height: 80px !important;
+/* Limpeza básica dos botões da sidebar */
+#barra-lateral button {
     background: transparent;
     border: none;
-    color: #E0E1DD;
-    font-size: 1rem;
-    resize: none;
-    outline: none;
-    padding-bottom: 40px; /* Garante que o texto não suma atrás dos botões */
-}
-
-/* Container dos botões fixados no canto inferior */
-.chat-actions {
-    position: absolute;
-    bottom: 12px;
-    left: 12px;
-    right: 12px;
-    display: flex;
-    justify-content: space-between; /* Mídia na esquerda, Enviar na direita */
-    align-items: center;
-    pointer-events: none; /* Permite clicar no textarea se errar o botão */
-}
-
-.chat-actions button {
-    pointer-events: auto; /* Devolve o clique para os botões */
-    border: none;
+    color: #A5A5A5;
+    padding: 10px 15px;
+    text-align: left;
+    width: 100%;
     cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    transition: all 0.2s ease;
+}
+#barra-lateral button:hover {
+    background-color: #3A506B;
+    color: white;
+}
+#barra-lateral nav br {
+    display: none; /* Remove quebras desnecessárias */
+}
+#btn-novo-chat {
+    background-color: #4EA8DE !important;
+    color: #0B132B !important;
+    font-weight: bold;
+    text-align: center !important;
+}
+
+/* ==========================================================================
+   ESTILIZAÇÃO EXCLUSIVA DA ÁREA DE CHAT (ESTILO IA)
+   ========================================================================== */
+
+/* Container que envelopa o chat antigo e o campo de texto */
+#area-chat {
+    background-color: #1C2541;
+    border: 1px solid #2A3454;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
     display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 850px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Caixa de seleção de chats antigos alinhada de forma moderna */
+#area-chat label {
+    font-size: 0.85rem;
+    color: #64DFDF;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+#chats {
+    background-color: #0B132B;
+    border: 1px solid #3A506B;
+    color: #E0E1DD;
+    padding: 10px 15px;
+    border-radius: 8px;
+    outline: none;
+    width: 100%;
+}
+
+#btn-acessar {
+    background-color: #3A506B;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+#btn-acessar:hover {
+    background-color: #4EA8DE;
+    color: #0B132B;
+}
+
+/* ==========================================================================
+   Janela de Histórico de Mensagens
+   ========================================================================== */
+#janela-chat {
+    background-color: #0B132B;
+    border: 1px solid #2A3454;
+    border-radius: 12px;
+    min-height: 250px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Customização da barra de rolagem interna do chat */
+#janela-chat::-webkit-scrollbar {
+    width: 6px;
+}
+#janela-chat::-webkit-scrollbar-thumb {
+    background-color: #3A506B;
+    border-radius: 10px;
+}
+
+/* ==========================================================================
+   A Caixa de Entrada (Onde você digita e os botões de ação abaixo)
+   ========================================================================== */
+
+/* Forçando o textarea original a ignorar o tamanho fixo (inline) do HTML */
+#falar-combot {
+    width: 100% !important;   /* Ignora os 50px fixados no HTML */
+    height: 90px !important;  /* Ignora os 16px fixados no HTML */
+    background-color: #0B132B;
+    border: 1px solid #3A506B;
+    color: #E0E1DD;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 10px;
+}
+
+#falar-combot:focus {
+    border-color: #64DFDF;
+    box-shadow: 0 0 10px rgba(100, 223, 223, 0.15);
+}
+
+/* Organização dos botões abaixo do campo de digitação */
+#area-chat br {
+    display: none; /* Remove as quebras manuais para alinhar via Flexbox */
+}
+
+/* Estilizando os botões Mídia e Enviar lado a lado */
+#btn-midia, #btn-enviar {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    border: none;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
     transition: all 0.2s ease;
 }
 
-/* Botão de Mídia (Clip) */
 #btn-midia {
-    background: transparent;
+    background-color: transparent;
     color: #A5A5A5;
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 0.95rem;
+    border: 1px solid #3A506B;
+    margin-right: 10px;
 }
-
 #btn-midia:hover {
-    background-color: #1C2541;
-    color: #FFFFFF;
+    background-color: #3A506B;
+    color: white;
 }
 
-/* Botão Enviar (Ícone de seta) */
 #btn-enviar {
-    background-color: #FFFFFF;
+    background-color: #4EA8DE;
     color: #0B132B;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    font-size: 1.1rem;
-    font-weight: bold;
 }
-
 #btn-enviar:hover {
     background-color: #64DFDF;
-    transform: scale(1.05);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(100, 223, 223, 0.2);
+}
+
+/* Configuração rápida para a seção de Métodos acima do chat */
+#config-aprendizado {
+    background-color: #1C2541;
+    border: 1px solid #2A3454;
+    padding: 15px 20px;
+    border-radius: 12px;
+    max-width: 850px;
+}
+#modo-estudo {
+    background-color: #0B132B;
+    color: #E0E1DD;
+    border: 1px solid #3A506B;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    margin-top: 5px;
 }

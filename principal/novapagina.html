@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LearninCo - Protótipo</title>
+    <title>LetMeSee - Protótipo</title>
         <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
@@ -11,30 +11,36 @@
 
 
     <aside id="barra-lateral">
-        <h3>LearninCo Menu</h3>
+        <h3>LetMeSee Menu</h3>
         <button id="btn-novo-chat">+ Novo Chat</button>
         <br><br>
         <nav>
-            <button id="aba-chat">💬 Chat Principal</button><br>
-            <button id="aba-cronograma">⌛ Cronograma</button><br>  
-            <button id="aba-biblioteca">📚 Minha Biblioteca</button><br>
-            <button id="aba-progresso">📊 Meu Progresso</button><br>
+            <button onclick="chatao()">💬 Chat Principal</button><br>
+            <button onclick="cronograma()">⌛ Cronograma</button><br>  
+            <button onclick="minhabiblioteca()">📚 Minha Biblioteca</button><br>
+            <button onclick="meuprogresso()">📊 Meu Progresso</button><br>
+        <button id="btn-main">Voltar para Login</button>
         </nav>    
         <div>
-        <button id="perfilsigma">Perfil</button>
+        <a href="perfil.html">
+            <button id="perfilsigma">Perfil</button>
+        </a>
     </div>
     </aside>
 
     <hr> <main>
-        <h1>Protótipo de LearninCo</h1>
-        <button id="btn-main">Voltar para Login</button>
+        <h1>| Protótipo de LetMeSee</h1>
         
         <br><br>
 
+<!--PRINCIPAL-->
+
+        <div id="principal" style="display: block;">
+
         <section id="config-aprendizado">
-            <label for="modo-estudo">Método de explicação:</label>
+            <label for="modo-estudo">Método de aprendizado:</label>
             <select id="modo-estudo">
-                <option value="facil">Me explique como se eu tivesse 5 anos</option>
+                <option value="facil">Me explique como se eu tivesse retardo</option>
                 <option value="normal">Explicação padrão</option>
                 <option value="simulado">Gerar perguntas de prova</option>
             </select>
@@ -42,12 +48,7 @@
 
         <br>
 
-        <section id="criar-conteudo">
-            <input id="input-conteudo" placeholder="Insira o conteúdo desejado (Ex: Matéria X)">
-            <button id="btn-gerar">Gerar Cronograma</button>
-        </section>
 
-        <br>
 
         <section id="area-chat">
             <label for="chats">Chats criados</label> 
@@ -60,10 +61,44 @@
             
             <br><br>
 
-            <textarea id="falar-combot" placeholder="Digite sua mensagem..." style="resize: none; width: 300px; height: 16px;"></textarea>
+            <div id="janela-chat"></div>
+
+            <textarea id="falar-combot" placeholder="Digite sua mensagem..." style="resize: none; width: 50px; height: 16px;"></textarea>
             <br>
             <button id="btn-midia">Mídia</button>
             <button id="btn-enviar">Enviar</button>
+
+</div>
+
+<!--CRONOGRAMA-->
+
+<div id="cronograma" style="display: none;">
+    <h2>| Cronograma</h2>
+<br>
+        <section id="criar-conteudo">
+            <input id="input-conteudo" placeholder="Insira o conteúdo desejado (Ex: Matéria X)">
+            <button id="btn-gerar">Gerar Cronograma</button>
+        </section>
+
+    <div id="calendario" style="display: none">
+
+
+</div>
+
+<!--BIBLIOTECA-->
+
+<div id="biblioteca" style="display: none;">
+    <h2>| Minha Biblioteca</h2>
+</div>
+
+<!--PROGRESSO-->
+
+<div id="progresso" style="display: none;">
+    <h2>| Meu Progresso</h2>
+</div>
+    
+<!--PERFIL-->
+
             <script src="principal.js"></script>
         </section>
     </main>

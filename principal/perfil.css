@@ -1,0 +1,196 @@
+/* ==========================================================================
+   Configurações Globais e Reset
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #0B132B; /* Azul-marinho profundo */
+    color: #E0E1DD;
+    overflow: hidden; /* Evita barras de rolagem na tela inteira */
+}
+
+/* ==========================================================================
+   Grid Layout (Divide a tela: Barra Lateral na esquerda | Conteúdo na direita)
+   ========================================================================== */
+body {
+    display: grid;
+    grid-template-columns: 260px 1fr; /* 260px para o menu, o resto para o perfil */
+    grid-template-rows: auto 1fr; /* Linha de cima para o H1, linha de baixo para os dados */
+    grid-template-areas: 
+        "sidebar header"
+        "sidebar main";
+}
+
+/* ==========================================================================
+   Barra Lateral (Menu Esquerdo)
+   ========================================================================== */
+#barra-lateral {
+    grid-area: sidebar;
+    background-color: #1C2541; /* Azul-marinho intermediário */
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid #3A506B;
+    height: 100vh;
+}
+
+#barra-lateral h3 {
+    color: #4EA8DE; 
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+
+#barra-lateral nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+/* Remove os <br> visuais de dentro da nav */
+#barra-lateral nav br {
+    display: none;
+}
+
+/* Estilização padrão dos botões do Menu */
+#barra-lateral button {
+    background: transparent;
+    border: none;
+    color: #A5A5A5;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+#barra-lateral button:hover {
+    background-color: #3A506B;
+    color: #FFFFFF;
+}
+
+/* Botão "+ Novo Chat" */
+#btn-novo-chat {
+    background-color: #4EA8DE !important;
+    color: #0B132B !important;
+    font-weight: bold;
+    text-align: center !important;
+    margin-bottom: 20px;
+}
+
+#btn-novo-chat:hover {
+    background-color: #64DFDF !important;
+    transform: translateY(-2px);
+}
+
+/* Botão Voltar para Login */
+#btn-main {
+    margin-top: auto; /* Empurra ele para o final da lista da navegação */
+    border: 1px solid #FF577F !important;
+    color: #FF577F !important;
+    text-align: center !important;
+}
+
+#btn-main:hover {
+    background-color: #FF577F !important;
+    color: white !important;
+}
+
+/* Botão de Perfil */
+#perfilsigma {
+    background-color: #24305E !important;
+    color: #FFFFFF !important;
+    text-align: center !important;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Cabeçalho de Conteúdo (| LetMeSee)
+   ========================================================================== */
+h1 {
+    grid-area: header;
+    padding: 30px 40px 10px 40px;
+    font-size: 2rem;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+h1::first-letter {
+    color: #64DFDF; /* Pipe "|" em ciano */
+}
+
+/* ==========================================================================
+   Área Principal dos Dados do Perfil
+   ========================================================================== */
+body > div {
+    grid-area: main;
+    padding: 20px 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 700px; /* Evita que os campos estiquem infinitamente para a direita */
+}
+
+p {
+    font-size: 1.1rem;
+    color: #E0E1DD;
+    font-weight: 500;
+}
+
+/* Adiciona a tag estilizada ciano antes das labels do perfil */
+p::before {
+    content: "• ";
+    color: #64DFDF;
+}
+
+/* Caixa de Texto da Bio */
+textarea {
+    background-color: #1C2541 !important; /* Sobrescreve o inline */
+    border: 1px solid #3A506B;
+    color: #E0E1DD;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 100% !important; /* Faz ocupar a largura disponível do container */
+    max-width: 500px;
+}
+
+textarea:focus {
+    border-color: #64DFDF;
+    box-shadow: 0 0 8px rgba(100, 223, 223, 0.25);
+}
+
+/* Botão Editar Perfil */
+body > div > button {
+    background-color: #4EA8DE;
+    color: #0B132B;
+    border: none;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start; /* Não deixa o botão esticar na tela toda */
+    margin-top: 10px;
+}
+
+body > div > button:hover {
+    background-color: #64DFDF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(100, 223, 223, 0.3);
+}
